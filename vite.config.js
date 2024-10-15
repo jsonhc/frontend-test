@@ -1,18 +1,17 @@
-import { defineConfig, loadEnv, ConfigEnv, UserConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
-import { wrapperEnv } from './build'
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import vueDevTools from 'vite-plugin-vue-devtools';
 
-export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
-  const root = process.cwd()
-  const env = loadEnv(mode, root)
-  const viteEnv = wrapperEnv(env)
+export default defineConfig({
+  plugins: [
+    vue(),
+    vueDevTools(),
+  ],
 
-  return {
-    base: viteEnv.VITE_PUBLIC_PATH,
-    plugins: [vue()],
-    resolve: {
-      alias
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
-})
+});
