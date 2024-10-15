@@ -8,7 +8,9 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-
+  return {
+    base: viteEnv.VITE_PUBLIC_PATH
+    },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
