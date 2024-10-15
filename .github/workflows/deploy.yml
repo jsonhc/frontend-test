@@ -25,7 +25,7 @@ jobs:
       run: npm run build
       env:
           NODE_ENV: production
-          VITE_BASE_URL: /frontend-test/
+          BASE_URL: /frontend-test/
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.4
