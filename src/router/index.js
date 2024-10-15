@@ -72,7 +72,7 @@ const routes = [
 
 // Correct usage of the environment variable in Vite (using import.meta.env.VITE_BASE_URL)
 const router = createRouter({
-  history: createWebHistory('/frontend-test/'),
+  history: createWebHistory(),
   routes
 });
 
