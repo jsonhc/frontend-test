@@ -4,7 +4,7 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
-  base: "/frontend-test/",
+  base: "/frontendtest/",
   plugins: [
     vue(),
     vueDevTools(),
