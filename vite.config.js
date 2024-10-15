@@ -8,7 +8,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  publicPath: process.env.NODE_ENV === 'production' ? '/frontend-test' : '/'
+  publicPath: process.env.NODE_ENV === 'production' ? '/frontend-test' : '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
