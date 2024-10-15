@@ -8,8 +8,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  // 使用 Vite 的环境变量接口来设置 base
-  base: import.meta.env.PROD ? '/test/' : '/',
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
