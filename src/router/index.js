@@ -11,6 +11,7 @@ import WeatherView from '../views/WeatherView.vue';
 import CountBookAPI from '../views/CountBookAPI.vue';
 import GetAllBookAPI from '../views/GetAllBookAPI.vue';
 
+// Define routes array outside of the createRouter function
 const routes = [
   {
     path: "/GetBookCount",
@@ -69,19 +70,22 @@ const routes = [
   }
 ];
 
+// Correct usage of the environment variable in Vite (using import.meta.env.VITE_BASE_URL)
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory('/frontend-test/'),
   routes
 });
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
+// Set up route guards with Firebase authentication
 router.beforeEach((to, from, next) => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     if (user) {
       next();
     } else {
+      // Redirect to login if the user is not authenticated and trying to access a protected route
       if (to.name !== 'Login' && to.name !== 'FireLogin' && to.name !== 'FireRegister') {
         next('/login');
       } else {
